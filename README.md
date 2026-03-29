@@ -32,10 +32,12 @@ cp .env.example .env.local
 
 - `NEXT_PUBLIC_SITE_URL`
 - `NEXT_PUBLIC_SUPABASE_URL`
-- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY` (or `NEXT_PUBLIC_SUPABASE_ANON_KEY`)
 - `SUPABASE_SERVICE_ROLE_KEY`
+- `ADMIN_EMAILS`
 - `NEXT_PUBLIC_UMAMI_WEBSITE_ID` (optional)
 - `NEXT_PUBLIC_UMAMI_SCRIPT_URL` (optional)
+- `NEXT_ALLOWED_DEV_ORIGINS` (optional, local dev only)
 
 4. In Supabase SQL editor, run:
 
@@ -69,3 +71,14 @@ npm run lint
 - The app includes fallback demo data when Supabase queries fail, so UI can still render locally.
 - Admin write actions use the service-role key and server actions.
 - Signed URL upload flow for private storage can be added on top of current `screenshot_url` field wiring.
+
+## Deployment
+
+For full production deployment instructions, use [DEPLOYMENT.md](DEPLOYMENT.md).
+
+Quick path (Vercel):
+
+1. Import this repo in Vercel.
+2. Add required environment variables from `.env.example`.
+3. Ensure Supabase schema is applied using `supabase/schema.sql`.
+4. Deploy and verify `/health/supabase`.
