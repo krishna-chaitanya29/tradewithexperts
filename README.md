@@ -75,6 +75,7 @@ npm run lint
 ## Deployment
 
 For full production deployment instructions, use [DEPLOYMENT.md](DEPLOYMENT.md).
+For repeatable release steps, use [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md).
 
 Quick path (Vercel):
 
